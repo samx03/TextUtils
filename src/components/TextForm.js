@@ -9,27 +9,32 @@ export default function TextForm(props) {
         // console.log("Uppercase was Clicked." + text)
         let newText = text.toUpperCase();
         setText(newText)
+        props.showAlert("Converted to Uppercase!", "success")
     }
 
     const handleLowClick = () => {
         let newText = text.toLowerCase();
         setText(newText)
+        props.showAlert("Converted to Lowercase!", "success")
     }
 
     const handleClearClick = () => {
         let newText = "";
         setText(newText)
+        props.showAlert("Cleared text!", "success")
     }
 
     const handleReverseClick = () => {
         let newText = text.split(" ").reverse().join(" ");
         setText(newText)
+        props.showAlert("Text Reversed!", "success")
     }
 
     const handleCopy = () => {
         let text = document.getElementById("myBox")
         text.select()
         navigator.clipboard.writeText(text.value)
+        props.showAlert("Copied to clipboard!", "success")
     }
 
     const handleOnChange = (event) => {
