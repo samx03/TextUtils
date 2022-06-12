@@ -21,16 +21,18 @@ function App() {
   const toggleMode = (cls) => {
     removeBodyClasses();
     document.body.classList.add('bg-' + cls)
-    const capitalize = (word)=>{
+    const capitalize = (word) => {
       let lower = word.toLowerCase();
       return lower.charAt(0).toUpperCase() + lower.slice(1);
-  }
+    }
     if (mode === 'light') {
       setMode('dark')
       showAlert(capitalize(cls) + " mode has been enabled", "success")
+      document.title = "TextUtils - " + capitalize(cls) + " mode"
     } else {
       setMode('light')
       showAlert("Light mode has been enabled", "success")
+      document.title = "TextUtils - Light mode"
     }
   }
 
