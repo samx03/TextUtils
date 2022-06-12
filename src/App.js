@@ -18,30 +18,18 @@ function App() {
       setAlert(null)
     }, 2000);
   }
-  const toggleMode = (cls) => {
-    removeBodyClasses();
-    document.body.classList.add('bg-' + cls)
-    const capitalize = (word) => {
-      let lower = word.toLowerCase();
-      return lower.charAt(0).toUpperCase() + lower.slice(1);
-    }
+  const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark')
-      showAlert(capitalize(cls) + " mode has been enabled", "success")
-      document.title = "TextUtils - " + capitalize(cls) + " mode"
+      showAlert("Dark mode has been enabled", "success")
+      document.body.style.backgroundColor = '#042743';
+      document.title = "TextUtils - Dark mode"
     } else {
       setMode('light')
       showAlert("Light mode has been enabled", "success")
+      document.body.style.backgroundColor = 'white';
       document.title = "TextUtils - Light mode"
     }
-  }
-
-  const removeBodyClasses = () => {
-    document.body.classList.remove('bg-light');
-    document.body.classList.remove('bg-dark');
-    document.body.classList.remove('bg-danger');
-    document.body.classList.remove('bg-success');
-    document.body.classList.remove('bg-warning');
   }
   return (
     <>
